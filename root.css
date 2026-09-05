@@ -24,6 +24,68 @@ filter: grayscale(80%) contrast(1.2) brightness(0.4);
 z-index: 1;
 transition: filter 0.1s;
 }
+#ui-layer{
+position: relative;
+z-index: 50;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding: 50px;
+}
+#station-sign{
+background: rgba(255, 255, 255, 0.1);
+border: 2px solid #333;
+padding: 20px 40px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 400px;
+margin: 0 auto;
+border-radius: 4px;
+box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
+}
+#station-sign span{
+font-family: 'Zen Kaku Gothic New', sans-serif;
+color: #555;
+}
+
+#curr-stat{
+font-size: 2rem;
+color: #ddd !important;
+font-weight: 800;
+text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+#dialogue-box{
+text-align: center;
+margin-bottom: 50px;
+min-height: 150px;
+}
+
+#sub-txt{
+font-size: 1.5rem;
+line-height: 2;
+text-shadow: 2px 2px 4px #000;
+margin-bottom: 30px;
+position: relative;
+display: inline-block;
+}
+#btn-fwd{
+background: transparent;
+border: 1px solid #555;
+color: #888;
+padding: 10px 30px;
+font-family: inherit;
+font-size: 1.2rem;
+cursor: pointer;
+transition: 0.3s;
+}
+
+#btn-fwd:hover{
+background: #fff;
+color: #000;
+box-shadow: 0 0 10px #fff;
+}
 #blocker{
 position: fixed;
 top: 0;
@@ -41,6 +103,7 @@ cursor: pointer;
 font-size: 1.2rem;
 animation: pulse 2s infinite;
 }
+
 @keyframes pulse{
 0%{
 opacity: 0.3; 
