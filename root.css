@@ -13,6 +13,17 @@ width: 100vw;
 user-select: none;
 cursor: crosshair;
 }
+#room-bg{
+position: absolute;
+top: -5%;
+left: -5%;
+width: 110%;
+height: 110%;
+background: url('src/graphics/bg_train_empty.jpg') center/cover no-repeat;
+filter: grayscale(80%) contrast(1.2) brightness(0.4);
+z-index: 1;
+transition: filter 0.1s;
+}
 #blocker{
 position: fixed;
 top: 0;
@@ -26,12 +37,10 @@ justify-content: center;
 align-items: center;
 cursor: pointer;
 }
-
 #blocker p{
 font-size: 1.2rem;
 animation: pulse 2s infinite;
 }
-
 @keyframes pulse{
 0%{
 opacity: 0.3; 
