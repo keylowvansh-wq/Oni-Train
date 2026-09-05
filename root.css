@@ -1,0 +1,45 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body{
+background: #000;
+color: #fff;
+font-family: 'Shippori Mincho', 'MS Mincho', serif;
+overflow: hidden;
+height: 100vh;
+width: 100vw;
+user-select: none;
+cursor: crosshair;
+}
+#blocker{
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background: #000;
+z-index: 9999;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+}
+
+#blocker p{
+font-size: 1.2rem;
+animation: pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{
+opacity: 0.3; 
+}
+50%{
+opacity: 1; 
+}
+100%{
+opacity: 0.3; 
+ }
+}
