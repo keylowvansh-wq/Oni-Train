@@ -10,6 +10,7 @@ let idx = 0;
 let mx = window.innerWidth / 2;
 let my = window.innerHeight / 2;
 let flashlightActive = false;
+let isF = false;
 const a1 = new Audio('src/sounds/train_rattle.mp3');
 a1.loop = true;
 const a2 = new Audio('src/sounds/heartbeat.mp3');
@@ -19,6 +20,7 @@ const a4 = new Audio('src/sounds/static.mp3');
 a4.loop = true;
 const a5 = new Audio('src/sounds/heavy_breathing.mp3');
 const a6 = new Audio('src/sounds/bone_snap.mp3');
+
 const st =[
 "いつもと同じ帰り道だった。",
 "電車に乗ってから、もう20分も停まっていない。",
@@ -32,6 +34,12 @@ const st =[
 "振り返ってはいけない。"
 ];
 
+if(localStorage.getItem('k_visited') === 'true'){
+idx = 7;
+st[7] = "また戻ってきたのか？";
+st[8] = "逃げられないよ。";
+}
+
 document.addEventListener('mousemove',e=>{
 mx = e.clientX;
 my = e.clientY;
@@ -40,17 +48,17 @@ let yPer = (my / window.innerHeight - 0.5) * 20;
 rBg.style.transform = `translate(${xPer}px, ${yPer}px) scale(1.1)`;
 if(flashlightActive){
 fMask.style.clipPath = `circle(120px at ${mx}px ${my}px)`;
-  }
+}
 });
 
-block.addEventListener('click', ()=>{
+block.addEventListener('click',()=>{
 block.style.display = 'none';
 a1.play();
 a2.play();
 a2.volume = 0.1;
 updateT();
 });
-btn.addEventListener('click', ()=>{
+btn.addEventListener('click',()=>{
 idx++;
 updateT();
 });
@@ -73,10 +81,10 @@ cb();
 }
 p();
 }
-
 function updateT(){
 btn.style.display = 'none';
 let raw = st[idx];
+
 if(idx === 3){
 a1.playbackRate = 0.8;
 rBg.style.filter = 'grayscale(100%) contrast(1.5) brightness(0.2)';
@@ -109,14 +117,14 @@ let rn = Math.random();
 if(rn > 0.5)
 a6.play();
 }
-
 if(idx >= st.length){
+localStorage.setItem('k_visited', 'true');
 return;
 }
 
 typeW(raw, txt, ()=>{
 if(idx < st.length){
 btn.style.display = 'inline-block';
-  }
-});
- } 
+   }
+  });
+}
